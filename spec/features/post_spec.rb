@@ -28,6 +28,15 @@ describe 'navigate' do
     end  
   end
 
+  describe 'new' do
+    it 'has a link from the homepage' do
+      visit root_path
+
+      click_link("new_post_from_nav")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe 'creation' do 
     before do
       user = User.create(email: "test@test.com", password: "123456", password_confirmation: "123456", first_name: "jon", last_name: "doe")
