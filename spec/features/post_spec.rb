@@ -37,6 +37,16 @@ describe 'navigate' do
     end
   end
 
+  describe 'delete' do
+    it 'can be deleted' do
+      @post = FactoryGirl.create(:post)
+      visit posts_path
+
+      click_link("delete_post_#{@post.id}_from_index")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe 'creation' do 
     before do
       user = User.create(email: "test@test.com", password: "123456", password_confirmation: "123456", first_name: "jon", last_name: "doe")
