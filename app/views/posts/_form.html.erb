@@ -1,4 +1,10 @@
-<%= form_for @post, class: "form-horizontal" do |f| %>
+ <%= form_for @post, class: "form-horizontal" do |f| %>
+
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |error| %>
+     <%= js add_gritter(error, :image => :notice, :title => "Please Advise!", :sticky => false) %>
+    <% end %>
+  <% end %>
 
   <div class="form-group">
     <%= f.label :date, class: "col-sm-2 control-label" %> 
@@ -13,3 +19,5 @@
   <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
 
 <% end %>
+
+<%= js add_gritter(flash[:notice], :image => :notice, :title => "Please Advise!", :sticky => false) %>
