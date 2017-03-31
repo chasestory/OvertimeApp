@@ -51,3 +51,5 @@ gem 'gritter', '~> 1.2'
 gem 'administrate', github: 'greetpoint/administrate', branch: 'rails5'
 
 gem "bourbon"
+
+gem 'pundit', '~> 1.1'
